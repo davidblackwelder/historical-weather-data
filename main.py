@@ -5,10 +5,10 @@ from db.models.weather import Weather
 
 # set user-defined information
 # this could be interactive but for now it will be hard-coded for proof of concept
-latitude = 35.487167
-longitude = -80.858528
-month = "07"
-day_of_month = "18"
+latitude = 43.083313
+longitude = -73.809898
+month = "03"
+day_of_month = "06"
 # year should be only one year in the future since API can only pull historical data
 year = 2024
 years = []
