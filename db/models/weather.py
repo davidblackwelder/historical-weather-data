@@ -1,5 +1,5 @@
 from sqlalchemy import Integer, String, Float, Column
-from ..db_setup import Base
+from db.db_setup import Base
 class Weather(Base):
     __tablename__ = "weather"
 
