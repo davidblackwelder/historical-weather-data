@@ -1,4 +1,7 @@
 from weatherdata import WeatherData
+from db.db_setup import engine, session_local
+from db.models import weather
+from db.models.weather import Weather
 
 # set user-defined information
 # this could be interactive but for now it will be hard-coded for proof of concept
@@ -67,3 +70,25 @@ w.five_year_min_precipitation = w.calc_5_year_min_precipitation_sum(
     precipitation_sums)
 w.five_year_max_precipitation = w.calc_5_year_max_precipitation_sum(
     precipitation_sums)
+
+# Create schema for weather Table from db_setup.py
+weather.Base.metadata.create_all(bind=engine)
+
+# Create a model instance of Weather() using attributes from the WeatherData() instance
+weather = Weather(w.latitude, w.longitude, w.month, w.day_of_month,
+                  w.year, w.five_year_avg_temp, w.five_year_min_temp,
+                  w.five_year_max_temp, w.five_year_avg_wind_speed, w.five_year_min_wind_speed,
+                  w.five_year_max_wind_speed, w.five_year_sum_precipitation, w.five_year_min_precipitation,
+                  w.five_year_max_precipitation)
+
+# Establish ability to connect with database from db_setup.py
+# more details about Session can be found here https://docs.sqlalchemy.org/en/20/orm/session_basics.html#what-does-the-session-do
+with session_local as session:
+    session.begin()
+    try:
+        session.add(weather)
+    except:
+        session.rollback()
+        raise
+    else:
+        session.commit()
