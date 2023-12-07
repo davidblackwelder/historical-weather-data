@@ -82,7 +82,8 @@ weather = Weather(w.latitude, w.longitude, w.month, w.day_of_month,
                   w.five_year_max_precipitation)
 
 # Establish ability to connect with database from db_setup.py
-# more details about Session can be found here https://docs.sqlalchemy.org/en/20/orm/session_basics.html#what-does-the-session-do
+# more details about Session can be found here:
+# https://docs.sqlalchemy.org/en/20/orm/session_basics.html#what-does-the-session-do
 with session_local as session:
     session.begin()
     try:
@@ -92,3 +93,9 @@ with session_local as session:
         raise
     else:
         session.commit()
+
+# Query table to retrieve data stored
+results = session.query(Weather).all()
+
+# Results will be formatted by __repr___ method for Weather() model class in weather.py
+print(results)
