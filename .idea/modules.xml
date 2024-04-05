@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/d493-scripting-and-programming-applications-main.iml" filepath="$PROJECT_DIR$/.idea/d493-scripting-and-programming-applications-main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/weather-etl-script.iml" filepath="$PROJECT_DIR$/.idea/weather-etl-script.iml" />
     </modules>
   </component>
 </project>

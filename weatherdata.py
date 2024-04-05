@@ -64,8 +64,7 @@ class WeatherData:
     # Put together Weather API web link to get a response in JSON format to be used with
     # other functions
     def get_weatherdata_response(self, start_date, end_date, BASE_URL, END_URL):
-        FINAL_URL = f"{BASE_URL}latitude={self.latitude}&longitude={
-            self.longitude}&start_date={start_date}&end_date={end_date}&{END_URL}"
+        FINAL_URL = f"{BASE_URL}latitude={self.latitude}&longitude={self.longitude}&start_date={start_date}&end_date={end_date}&{END_URL}"
 
         response = requests.get(FINAL_URL).json()
         return response
