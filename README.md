@@ -15,7 +15,7 @@ and stored in our database.
 - Use `pip install sqlalchemy` to interact with the database using Python
 
 ## How To Use Project
-- Download zip file from [Gitlab](https://gitlab.com/wgu-gitlab-environment/student-repos/dbla367/d493-scripting-and-programming-applications/-/tree/david-main?ref_type=heads)
+- Download zip file from [Github](https://github.com/davidblackwelder/historical-weather-data)
 - Unzip the files
 - Update the variables for your location and date in the `main.py` file:
   - `latitude` should be a Float type
